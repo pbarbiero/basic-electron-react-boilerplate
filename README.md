@@ -12,17 +12,18 @@ If you like this project, check out _enhanced-electron-react-boilerplate_ which 
 ### To get started:
 * Run `npm install`
 
-**To Develop**
+##### To Develop
 * Run `npm run dev` to start webpack dev server
 * In another terminal window run `npm run testDev` to start electron
 
-**FOR PRODUCTION**
-You have two options, an automatic build or two manual steps
+##### FOR PRODUCTION
+_You have two options, an automatic build or two manual steps_
 
-*One Shot*
+###### One Shot
 * Run `npm run package` to have webpack compile your application into `dist/bundle.js` and `dist/index.html`, and then an electron-packager run will be triggered for the current platform/arch using asar archives
+* _Not yet available_
 
-*Manual*
+###### Manual
 * Run `npm run build` to have webpack compile and output your bundle to `dist/bundle.js`
 * Then you can call electron-packager directly with any commands you choose
 
