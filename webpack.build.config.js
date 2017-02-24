@@ -32,8 +32,8 @@ module.exports = {
     new ExtractTextPlugin("bundle.css"),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
-    })/*,
-    new BabiliPlugin()*/
+    }),
+    new BabiliPlugin()
   ],
   stats: {
     colors: true,

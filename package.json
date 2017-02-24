@@ -1,6 +1,6 @@
 {
   "name": "basic-electron-react-boilerplate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Minimal and modern react+electron+webpack boilerplate",
   "author": "Phillip Barbiero",
   "homepage": "https://github.com/PhillMcKraken/basic-electron-react-boilerplate",
@@ -15,7 +15,8 @@
     "testProd": "electron main.js --noDevServer",
     "dev": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js",
     "build": "webpack --config webpack.build.config.js",
-    "package": "webpack --config webpack.build.config.js"
+    "package": "webpack --config webpack.build.config.js",
+    "postpackage": "electron-packager ./ --out=./builds"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -25,6 +26,7 @@
     "babili-webpack-plugin": "0.0.10",
     "css-loader": "^0.26.1",
     "electron": "^1.4.15",
+    "electron-packager": "^8.5.2",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "html-webpack-plugin": "^2.28.0",
     "react": "^15.4.2",
