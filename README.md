@@ -12,11 +12,11 @@ If you like this project, check out _enhanced-electron-react-boilerplate_ which 
 ### To get started:
 * Run `npm install`
 
-##### To Develop
+##### Development
 * Run `npm run dev` to start webpack dev server
 * In another terminal window run `npm run testDev` to start electron
 
-##### FOR PRODUCTION
+##### Production
 _You have two options, an automatic build or two manual steps_
 
 ###### One Shot
