@@ -7,7 +7,7 @@ The basic structure of `src/` is intentionally minimal to make it easier to allo
 
 Production builds do NOT use UglifyJS, instead Babili is used and NO ES2015/ES6 transpilation is provided -- As modern node and chromium versions support 99%+ of the ES6 feature set, I feel those steps are unnecessary.
 
-If you like this project, check out _enhanced-electron-react-boilerplate_ which is this project with my take on additional modules (photon, redux, less, css modules etc) and my personal project structure (based on the redux ducks proposal) I suggest you give it a look if you want less of a minimalistic take on my starter kit.
+If you like this project, check out [enhanced-electron-react-boilerplate](https://github.com/PhillMcKraken/enhanced-electron-react-boilerplate) which is this project with my take on additional modules (photon, redux, less, css modules etc) and my personal project structure (based on the redux ducks proposal) I suggest you give it a look if you want less of a minimalistic take on my starter kit.
 
 ### To get started:
 * Run `npm install`
