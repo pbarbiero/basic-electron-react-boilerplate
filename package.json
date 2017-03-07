@@ -1,6 +1,6 @@
 {
   "name": "basic-electron-react-boilerplate",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Minimal and modern react+electron+webpack boilerplate",
   "author": "Phillip Barbiero",
   "homepage": "https://github.com/PhillMcKraken/basic-electron-react-boilerplate",
@@ -11,8 +11,8 @@
   "license": "MIT",
   "main": "main.js",
   "scripts": {
-    "testDev": "electron main.js",
-    "testProd": "electron main.js --noDevServer",
+    "testDev": "electron .",
+    "testProd": "electron . --noDevServer",
     "dev": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js",
     "build": "webpack --config webpack.build.config.js",
     "package": "webpack --config webpack.build.config.js",
@@ -20,18 +20,18 @@
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
-    "babel-loader": "^6.3.2",
+    "babel-loader": "^6.4.0",
     "babel-preset-react": "^6.23.0",
-    "babili-webpack-plugin": "0.0.10",
-    "css-loader": "^0.26.1",
-    "electron": "^1.4.15",
+    "babili-webpack-plugin": "0.0.11",
+    "css-loader": "^0.26.2",
+    "electron": "^1.6.1",
     "electron-packager": "^8.5.2",
-    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "html-webpack-plugin": "^2.28.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "style-loader": "^0.13.1",
+    "style-loader": "^0.13.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }

@@ -14,7 +14,7 @@ module.exports = {
   entry: SRC_DIR + '/index.js',
   output: {
     path: OUTPUT_DIR,
-    publicPath: '/',
+    publicPath: './',
     filename: 'bundle.js'
   },
   module: {
@@ -37,8 +37,8 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin("bundle.css"),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"',
-    }),
+			process: { env: { NODE_ENV: JSON.stringify('production') } }
+		}),
     new BabiliPlugin()
   ],
   stats: {

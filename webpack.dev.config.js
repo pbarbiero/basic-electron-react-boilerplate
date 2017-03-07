@@ -36,8 +36,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"dev"',
-    }),
+			process: { env: { NODE_ENV: JSON.stringify('development') } }
+		})
   ],
   devtool: "cheap-source-map",
   devServer: {
