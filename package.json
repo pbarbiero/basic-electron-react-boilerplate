@@ -3,10 +3,10 @@
   "version": "0.4.0",
   "description": "Minimal and modern react+electron+webpack boilerplate",
   "author": "Phillip Barbiero",
-  "homepage": "https://github.com/PhillMcKraken/basic-electron-react-boilerplate",
+  "homepage": "https://github.com/pbarbiero/basic-electron-react-boilerplate",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PhillMcKraken/basic-electron-react-boilerplate.git"
+    "url": "https://github.com/pbarbiero/basic-electron-react-boilerplate.git"
   },
   "license": "MIT",
   "main": "main.js",
