@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { spawn } = require('child_process');
 
 // Config directories
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -54,6 +55,15 @@ module.exports = {
       colors: true,
       chunks: false,
       children: false
+    },
+    setup() {
+      spawn(
+        'electron',
+        ['.'],
+        { shell: true, env: process.env, stdio: 'inherit' }
+      )
+      .on('close', code => process.exit(0))
+      .on('error', spawnError => console.error(spawnError));
     }
   }
 };
