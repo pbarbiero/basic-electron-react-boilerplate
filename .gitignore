@@ -1,6 +1,5 @@
 node_modules/
 *npm-debug.log
 *.DS_Store
-dist/bundle.js
-dist/bundle.css
+dist/
 builds/
