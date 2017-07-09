@@ -1,6 +1,6 @@
 {
   "name": "basic-electron-react-boilerplate",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Minimal and modern react+electron+webpack boilerplate",
   "author": "Phillip Barbiero",
   "homepage": "https://github.com/pbarbiero/basic-electron-react-boilerplate",
