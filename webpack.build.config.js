@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Config directories
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -47,6 +48,10 @@ module.exports = {
   },
   target: 'electron-renderer',
   plugins: [
+    new CopyWebpackPlugin([
+      { from: 'package.json', to: './' },
+      { from: 'main.js', to: './' }
+    ]),
     new HtmlWebpackPlugin(),
     new ExtractTextPlugin('bundle.css'),
     new webpack.DefinePlugin({
