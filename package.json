@@ -6,7 +6,7 @@
   "homepage": "https://github.com/pbarbiero/basic-electron-react-boilerplate",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arshadkazmi42/basic-electron-react-boilerplate.git"
+    "url": "https://github.com/pbarbiero/basic-electron-react-boilerplate.git"
   },
   "license": "MIT",
   "main": "main.js",
