@@ -11,7 +11,9 @@ const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 const defaultInclude = [SRC_DIR];
 
 module.exports = {
+  mode: 'development',
   entry: SRC_DIR + '/index.js',
+  stats: 'minimal',
   output: {
     path: OUTPUT_DIR,
     publicPath: '/',
@@ -31,12 +33,24 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif)$/,
-        use: [{ loader: 'file-loader?name=img/[name]__[hash:base64:5].[ext]' }],
+        use: [{
+          loader: 'file-loader',
+
+          options: {
+            name: 'img/[name]__[hash:base64:5].[ext]'
+          }
+        }],
         include: defaultInclude
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        use: [{ loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }],
+        use: [{
+          loader: 'file-loader',
+
+          options: {
+            name: 'font/[name]__[hash:base64:5].[ext]'
+          }
+        }],
         include: defaultInclude
       }
     ]
@@ -45,18 +59,15 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'global': {}, // bizarre lodash(?) webpack workaround
+      'global.GENTLY': false // superagent client fix
     })
   ],
   devtool: 'cheap-source-map',
   devServer: {
-    contentBase: OUTPUT_DIR,
-    stats: {
-      colors: true,
-      chunks: false,
-      children: false
-    },
-    setup() {
+    static: OUTPUT_DIR,
+    onBeforeSetupMiddleware() {
       spawn(
         'electron',
         ['.'],

@@ -1,8 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BabiliPlugin = require('babili-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { spawn } = require('child_process');
 
 // Config directories
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -12,7 +11,9 @@ const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 const defaultInclude = [SRC_DIR];
 
 module.exports = {
+  mode: 'production',
   entry: SRC_DIR + '/index.js',
+  stats: 'minimal',
   output: {
     path: OUTPUT_DIR,
     publicPath: './',
@@ -22,10 +23,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        }),
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
         include: defaultInclude
       },
       {
@@ -48,16 +46,23 @@ module.exports = {
   target: 'electron-renderer',
   plugins: [
     new HtmlWebpackPlugin(),
-    new ExtractTextPlugin('bundle.css'),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new BabiliPlugin()
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'global': {}, // bizarre lodash(?) webpack workaround
+      'global.GENTLY': false // superagent client fix
+    })
   ],
-  stats: {
-    colors: true,
-    children: false,
-    chunks: false,
-    modules: false
+  devtool: 'cheap-source-map',
+  devServer: {
+    static: OUTPUT_DIR,
+    onBeforeSetupMiddleware() {
+      spawn(
+        'electron',
+        ['.'],
+        { shell: true, env: process.env, stdio: 'inherit' }
+      )
+      .on('close', code => process.exit(0))
+      .on('error', spawnError => console.error(spawnError));
+    }
   }
 };
